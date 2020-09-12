@@ -43,3 +43,27 @@ Fork本项目，到config.json里面修改uuid或其它，然后到Dockerfile里
 最后，打钱：https://starts.sh/donation.html
 
 测试暗网地址：http://vq7kihyfoqcoluju.onion/donation.html
+
+
+
+利用免费vps的空间搭建一个v2ray程序，注册只需要一个邮箱，搭建程序过程也比较简单，类似heroku一样全自动运行安装，安装完成后可以使用CDN托管域名进行加速，利用优选IP来提速！
+
+一、项目地址
+https://github.com/yeahwu/kinto
+
+二、kintohub地址
+注册地址： https://app.kintohub.com/
+
+三、CDN加速
+打开cloudflare地址，新建workes，复制下面代码，修改name为你建立的kintohub域名
+
+addEventListener(
+"fetch",event => {
+let url=new URL(event.request.url);
+url.hostname="你的kintohub域名";
+let request=new Request(url,event.request);
+event. respondWith(
+fetch(request)
+)
+}
+)
